@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tzu-Hsun Kao — Aerospace Engineering PhD Student</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Tzu-Hsun Kao</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main>
+  <section class="home-section">
+    <div class="home-layout">
+      <!-- Left: photo + name -->
+      <div class="home-photo-col">
+        <img src="Resources/pic.jpg" alt="Tzu-Hsun Kao" class="home-photo" />
+        <h1 class="home-name">Tzu-Hsun Kao</h1>
+        <div class="home-meta">
+          <p class="home-position"><span class="meta-icon">🎓</span><span>PhD Student</span></p>
+          <p class="home-position"><span class="meta-icon">📍</span><span>Boulder, CO</span></p>
+          <p class="home-position"><span class="meta-icon">📧</span><a href="mailto:Tzu-Hsun.Kao@colorado.edu">Email</a></p>
+          <p class="home-position"><span class="meta-icon">📚</span><a href="https://scholar.google.com.tw/citations?user=jrdIadQAAAAJ&hl=zh-TW&authuser=1" target="_blank">Google Scholar</a></p>
+          <p class="home-position"><span class="meta-icon">🔬</span><a href="https://orcid.org/0000-0001-6592-4341" target="_blank">ORCID</a></p>
+        </div>
+        <!-- Citation stats -->
+        <a href="https://scholar.google.com.tw/citations?user=jrdIadQAAAAJ&hl=zh-TW&authuser=1" target="_blank" class="citation-box">
+          <div class="citation-title">Citations</div>
+          <div class="citation-stats">
+            <div class="citation-stat-row citation-header">
+              <span></span><span>All</span><span>Since 2021</span>
+            </div>
+            <div class="citation-stat-row">
+              <span>Citations</span><span>9</span><span>9</span>
+            </div>
+            <div class="citation-stat-row">
+              <span>h-index</span><span>2</span><span>2</span>
+            </div>
+            <div class="citation-stat-row">
+              <span>i10-index</span><span>0</span><span>0</span>
+            </div>
+          </div>
+          <div class="citation-chart">
+            <div class="citation-chart-inner">
+              <!-- Y axis -->
+              <div class="citation-yaxis">
+                <span>5</span>
+                <span>4</span>
+                <span>3</span>
+                <span>2</span>
+                <span>1</span>
+                <span>0</span>
+              </div>
+              <!-- Bars (no year labels inside — they go in the row below) -->
+              <div class="citation-bars">
+                <div class="citation-bar-wrap">
+                  <div class="citation-bar" style="height: 48px;"></div>
+                </div>
+                <div class="citation-bar-wrap">
+                  <div class="citation-bar" style="height: 64px;"></div>
+                </div>
+                <div class="citation-bar-wrap">
+                  <div class="citation-bar" style="height: 32px;"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Year labels row, offset to align under bars (not y-axis) -->
+            <div class="citation-xlabels">
+              <span>2024</span>
+              <span>2025</span>
+              <span>2026</span>
+            </div>
+          </div>
+        </a>
+        <p class="citation-updated">Last update on May 19, 2026</p>
+      </div>
+      <!-- Left photo col end -->
+
+      <!-- Right: content -->
+      <div class="home-content-col">
+        <span class="home-tag">Aerospace Engineering · Space Science</span>
+        <p class="home-intro">
+          Hello! I'm Tzu-Hsun (子勛), a PhD student at the University of Colorado Boulder, Department of Aerospace Engineering Sciences. I'm a lead of COSMO data processing, a 6U CubeSat measuring Earth's magnetic field using vectorized Rubidium scalars. COSMO has launched at the end of March 2026. Now we are working on getting first science data from it. My research interest is on the magnetic field, magnetosphere, wave-driven particle precipitation, and ionospheric responses to solar and geophysical events. It's my pleasure to see you here! Please feel free to browsing around and let me know if you have any questions!
+        </p>
+        <div class="home-chips">
+          <span class="chip">Ionosphere</span>
+          <span class="chip">Magnetosphere</span>
+          <span class="chip">Magnetic Field</span>
+          <span class="chip">Magnetometer</span>
+          <span class="chip">Wave-Particle Interaction</span>
+        </div>
+
+        <!-- Latest publications -->
+        <div class="home-pubs">
+          <div class="home-pubs-header">
+            <span class="section-label" style="margin:0;">Recent Publications</span>
+            <a href="publications.html" class="home-pubs-all">View all →</a>
+          </div>
+          <details class="pub-item home-pub-item pub-dropdown">
+            <summary>
+              <div class="pub-summary-content">
+                <div class="pub-title">The ionospheric plasma density hole on the 10 May 2024 Mother's Day great magnetic storm</div>
+                <div class="pub-authors">Wu, T. Y., Liu, J. Y., Lin, C. Y., Chao, C. K., <strong>Kao, T. H.</strong>, and Lee, P. H.</div>
+                <div class="pub-venue">Geoscience Letters, 2025 · <a href="https://doi.org/10.1029/2025GL115956" target="_blank" onclick="event.stopPropagation()">doi:10.1029/2025GL115956</a></div>
+              </div>
+              <span class="pub-chevron">▸</span>
+            </summary>
+            <ul class="pub-keypoints">
+              <li>FORMOSAT-5 and FORMOSAT-7 observed upward ion velocity at 720 km and downward ion velocity at 550 km altitude inside the plasma hole over the Atlantic Ocean during local midnight.</li>
+              <li>The electron density in the hole yields a double-peak structure, with the lower peak at ~440 km and the upper peak at ~760 km altitude.</li>
+              <li>The downward and upward ion velocities are likely responsible for creating the double-peak electron density feature observed during this extreme storm (Dst −412 nT).</li>
+            </ul>
+          </details>
+
+          <details class="pub-item home-pub-item pub-dropdown">
+            <summary>
+              <div class="pub-summary-content">
+                <div class="pub-title">Uplift of the ionosphere by tropospheric and thermospheric Lamb waves induced by the 2022 Tonga volcanic eruption</div>
+                <div class="pub-authors">Liu, T. C., Liu, J. Y., Lee, P. H., Lin, C. Y. T., <strong>Kao, T. H.</strong>, and Tsai, Y. L.</div>
+                <div class="pub-venue">Geoscience Letters, 2025 · <a href="https://doi.org/10.1186/s40562-025-00419-0" target="_blank" onclick="event.stopPropagation()">doi:10.1186/s40562-025-00419-0</a></div>
+              </div>
+              <span class="pub-chevron">▸</span>
+            </summary>
+            <ul class="pub-keypoints">
+              <li>Thermospheric Lamb wavefronts propagated at 539 m/s and tropospheric ones at 338 m/s, uplifting the ionosphere by 86–155 km and 50–110 km, respectively.</li>
+              <li>The ionospheric uplift significantly increased the Rayleigh–Taylor instability growth rate, resulting in the occurrence of ionospheric spread-F layers.</li>
+              <li>The tropospheric Lamb wave was accompanied by distinct near-surface air pressure pulses and sea level fluctuations, while the thermospheric one was not.</li>
+            </ul>
+          </details>
+
+          <details class="pub-item home-pub-item pub-dropdown">
+            <summary>
+              <div class="pub-summary-content">
+                <div class="pub-title">Doppler Frequency shifts associated with the 18 September 2022 M6.8 Taitung Earthquake observed by local CW-HF Doppler sounding systems in Taiwan</div>
+                <div class="pub-authors">Liu, J. Y., <strong>Kao, T. H.</strong>, Chen, Y. C., et al.</div>
+                <div class="pub-venue">Journal of Geophysical Research: Space Physics, 2025 · <a href="https://doi.org/10.1029/2025JA033876" target="_blank" onclick="event.stopPropagation()">doi:10.1029/2025JA033876</a></div>
+              </div>
+              <span class="pub-chevron">▸</span>
+            </summary>
+            <ul class="pub-keypoints">
+              <li>The STIDs from the M6.8 Taitung earthquake propagated upward at approximately the speed of sound, with a horizontal speed of ~1.4 km/s — slower than the 3.2–3.9 km/s observed for distant quakes.</li>
+              <li>DFS observations from five sounding frequencies across nine receiving stations confirmed upward propagation with reflection heights of ~160–225 km altitude.</li>
+              <li>In the Taiwan vicinity, the total intensity of earthquakes is essential for triggering STIDs, established through analysis of the top nine earthquakes during 2022–2023.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+      <!-- Right: content -->
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 Tzu-Hsun Kao ·
+    <a href="mailto:Tzu-Hsun.Kao@colorado.edu">Tzu-Hsun.Kao@colorado.edu</a>
+  </p>
+</footer>
+
+<script src="nav.js"></script>
+<script>
+  // Align meta block's left edge with the "T" in the name
+  function alignMeta() {
+    const name = document.querySelector('.home-name');
+    const meta = document.querySelector('.home-meta');
+    if (!name || !meta) return;
+    const nameRect = name.getBoundingClientRect();
+    const colRect = name.parentElement.getBoundingClientRect();
+    // "T" starts at the left edge of the rendered text inside the centered name
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    const style = getComputedStyle(name);
+    ctx.font = `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
+    const textWidth = ctx.measureText(name.textContent.trim()).width;
+    const leftPad = (nameRect.width - textWidth) / 2;
+    meta.style.paddingLeft = Math.max(0, leftPad) + 'px';
+  }
+  window.addEventListener('load', alignMeta);
+  window.addEventListener('resize', alignMeta);
+</script>
+</body>
+</html>
