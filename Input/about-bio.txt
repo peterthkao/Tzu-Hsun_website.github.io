@@ -1,0 +1,3 @@
+I'm a PhD student at the University of Colorado Boulder, working with Dr. Robert Marshall in the Department of Aerospace Engineering Sciences. I lead data processing for COSMO, a 6U CubeSat that measures Earth's magnetic field using vectorized rubidium scalars.
+
+My research focuses on wave-driven particle precipitation and ionospheric responses to solar and geophysical events. I hold an MS in Space Science and Engineering from National Central University in Taiwan, where I specialized in ionospheric responses to solar eclipses, volcanic eruptions, and geomagnetic storms.

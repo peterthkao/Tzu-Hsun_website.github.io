@@ -1,0 +1,4 @@
+-> Ionospheric Response to Solar Eclipses
+--> NCU · 2021–2023
+--- Analyzed in-situ satellite measurements from Swarm, FORMOSAT-7/COSMIC-2, and ICON to characterize ionospheric responses to the 21 June 2020 annular solar eclipse and the 8 April 2024 total solar eclipse.
+# Ionosphere | Satellite Data | Solar Eclipse

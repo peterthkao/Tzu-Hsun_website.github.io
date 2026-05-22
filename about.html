@@ -32,7 +32,7 @@
 
     <div class="about-grid">
       <img src="Resources/pic.jpg" alt="Tzu-Hsun Kao" class="about-photo" />
-      <div>
+      <div id="about-bio">
         <p>
           I'm a PhD student at the University of Colorado Boulder, working with Dr. Robert Marshall in the Department of Aerospace Engineering Sciences. I lead data processing for COSMO, a 6U CubeSat that measures Earth's magnetic field using vectorized rubidium scalars.
         </p>
@@ -59,6 +59,7 @@
         <span class="label">ORCID</span>
         <span class="value"><a href="https://orcid.org/0000-0001-6592-4341" target="_blank">0000-0001-6592-4341</a></span>
       </div>
+
       <div class="about-detail">
         <span class="label">Advisor</span>
         <span class="value">Dr. Robert Marshall</span>
@@ -69,7 +70,7 @@
       <div class="section-label">Education</div>
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-year">Aug. 2024 – Dec. 2027 (expected)</div>
+          <div class="timeline-year">Aug. 2024 – Dec. 2027<br><span style="font-size:0.78em; opacity:0.75; display:block; text-align:right;">(expected)</span></div>
           <div class="timeline-content">
             <h3>Ph.D. in Aerospace Engineering Sciences</h3>
             <p>University of Colorado Boulder, CO, USA</p>
@@ -80,6 +81,7 @@
           <div class="timeline-content">
             <h3>M.S. in Space Science and Engineering</h3>
             <p>National Central University, Taoyuan, Taiwan</p>
+            <p style="margin-top:4px; font-size:0.82rem; color:var(--muted);">Dissertation: <a href="https://etd.lib.ncu.edu.tw/detail/0927ea67be99e47edf66c757e2e39d89/" target="_blank">Latitudinal Ionospheric Solar Eclipse Effects</a></p>
           </div>
         </div>
         <div class="timeline-item">
@@ -92,64 +94,11 @@
       </div>
     </div>
 
-    <div style="margin-top: 32px;">
-      <div class="section-label">Experience</div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-year">Aug. 2024 – present</div>
-          <div class="timeline-content">
-            <h3>Research Assistant</h3>
-            <p>Dept. of Aerospace Engineering Sciences, CU Boulder</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">Jun. 2023 – Aug. 2024</div>
-          <div class="timeline-content">
-            <h3>Research Assistant</h3>
-            <p>Center for Astronautical Physics and Engineering (CAPE), NCU</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">Aug. 2021 – Jun. 2023</div>
-          <div class="timeline-content">
-            <h3>Research Assistant</h3>
-            <p>Dept. of Space Science and Engineering, NCU</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">Jul. 2023 – Aug. 2023</div>
-          <div class="timeline-content">
-            <h3>Intern</h3>
-            <p>Taiwan Space Agency (formerly the National Space Organization)</p>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div style="margin-top: 32px;">
-      <div class="section-label">Awards &amp; Honors</div>
-      <div class="timeline">
-        <div class="award-item">
-          <span class="award-name">2nd Place Prize, Student Poster Competition — CEDAR Workshop, USA</span>
-          <span class="award-year">Jun. 2023</span>
-        </div>
-        <div class="award-item">
-          <span class="award-name">Scholarship for Excellent Students — NCU, Taiwan</span>
-          <span class="award-year">Mar. 2023</span>
-        </div>
-        <div class="award-item">
-          <span class="award-name">Scholarship for Academic Outstanding Students — NCU, Taiwan</span>
-          <span class="award-year">Oct. 2021</span>
-        </div>
-        <div class="award-item">
-          <span class="award-name">Scholarship for Academic Outstanding Students — NCU, Taiwan</span>
-          <span class="award-year">Oct. 2020</span>
-        </div>
-        <div class="award-item">
-          <span class="award-name">Academic Achievement Award — NCU, Taiwan</span>
-          <span class="award-year">Sep. 2018</span>
-        </div>
-      </div>
+    <div style="margin-top: 40px; text-align: center;">
+      <a href="Resources/20260519 THKao_CV.pdf" download class="cv-download-btn">
+        Curriculum Vitae
+      </a>
     </div>
 
   </section>
@@ -162,5 +111,21 @@
 </footer>
 
 <script src="nav.js"></script>
+<script>
+  // ── About bio loader ─────────────────────────────────────────────
+  // Edit Input/about-bio.txt to update the bio paragraphs.
+  // Separate paragraphs with a blank line.
+  // ──────────────────────────────────────────────────────────────────
+  async function loadAboutBio() {
+    const r = await fetch('Input/about-bio.txt');
+    if (!r.ok) return;
+    const text = (await r.text()).trim();
+    const container = document.getElementById('about-bio');
+    // Split on blank lines into separate paragraphs
+    const paragraphs = text.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
+    container.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+  }
+  loadAboutBio();
+</script>
 </body>
 </html>

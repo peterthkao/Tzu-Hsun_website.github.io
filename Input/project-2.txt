@@ -1,0 +1,4 @@
+-> FORMOSAT-7/COSMIC-2 GPS Receiver Anomaly Study
+--> NCU · Taiwan Space Agency Internship · 2023
+--- Investigated aberrant records from commercial off-the-shelf bus GPS receivers onboard the FORMOSAT-7/COSMIC-2 constellation, including analysis of single event effects from space weather.
+# GNSS | Space Weather | LEO Satellites | FORMOSAT-7

@@ -1,0 +1,4 @@
+-> COSMO — Data Processing Lead
+--> CU Boulder · Ongoing
+--- Leading data processing for COSMO, a 6U CubeSat mission that measures Earth's magnetic field using vectorized rubidium scalars. Covers in-orbit magnetometer calibration, science data pipeline, and distribution to mission sponsors.
+# CubeSat | Magnetometer | Data Pipeline | In-Orbit Calibration

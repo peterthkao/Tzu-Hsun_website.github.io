@@ -1,0 +1,2 @@
+-> Ionosphere
+--- Ionosphere is a layer in the upper atmosphere, which is full of ionized particles or plasma. It can be affected by multiple resources, including from the lithosphere, stratosphere, mesosphere, plasmasphere, magnetosphere, solar wind, etc. The dynamic responses to those geophysical events are particular important for us to understand the basic plasma physics and also the space weather. Since there are more than 10s of thousands of satellites orbiting in the ionosphere, the space weather is one of the important applications of ionospheric studies.

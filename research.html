@@ -29,37 +29,9 @@
   <section>
     <div class="section-label">Research</div>
     <h2>Research Interests</h2>
-    <p class="section-intro">
-      My research centers on ionospheric physics and space instrumentation. I study how geophysical events — solar eclipses, volcanic eruptions, earthquakes, and geomagnetic storms — drive responses in the ionosphere, and I develop the data systems that make those observations possible.
-    </p>
+    <p class="section-intro" id="research-intro">My research focuses on the ionosphere, magnetic field dynamics, wave-driven particle precipitation, and space instrumentation. I study how geophysical events, e.g. solar eclipses, volcanic eruptions, earthquakes, and geomagnetic storms, responses in the ionosphere. I also investigate the ElectroMagnetic Ion Cyclotron (EMIC) waves and the associated particle precipitation by using the spaceborne magnetometers and particle detectors. The other research interest is the space instrument single event effects (SEEs), which is affected by energetic particles.</p>
 
-    <div class="card">
-      <h3>Wave-Driven Particle Precipitation</h3>
-      <p style="margin-top:6px; font-size:0.88rem; color:var(--muted);">
-        Investigating how waves in Earth's magnetosphere drive energetic particle precipitation into the atmosphere, with a focus on the underlying physics and its coupling to the ionosphere.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>COSMO CubeSat — Data Processing Lead</h3>
-      <p style="margin-top:6px; font-size:0.88rem; color:var(--muted);">
-        Leading data processing for COSMO, a 6U CubeSat that measures Earth's magnetic field using a vectorized rubidium scalar magnetometer. Responsibilities include in-orbit calibration, pipeline development, and science data distribution.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Ionospheric Responses to Solar &amp; Geophysical Events</h3>
-      <p style="margin-top:6px; font-size:0.88rem; color:var(--muted);">
-        Analyzing in-situ satellite measurements and ground-based data to characterize how the ionosphere responds to solar eclipses, volcanic eruptions (e.g., 2022 Tonga), geomagnetic storms, and earthquakes.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Magnetometer Data &amp; Geomagnetic Research</h3>
-      <p style="margin-top:6px; font-size:0.88rem; color:var(--muted);">
-        Interested in magnetometer data analysis for geomagnetic research, including field calibration and the detection of magnetic signatures associated with atmospheric and geophysical phenomena.
-      </p>
-    </div>
+    <div id="research-cards"></div>
   </section>
 </main>
 
@@ -70,5 +42,54 @@
 </footer>
 
 <script src="nav.js"></script>
+<script>
+  // ── Research content loader ───────────────────────────────────────────
+  // Each research topic lives in Input/research-N.txt with this format:
+  //   ->  Title
+  //   --- Description paragraph
+  //
+  // To ADD a new topic: create Input/research-N.txt with the next number.
+  // The page discovers them automatically — no HTML changes needed.
+  // Also edit Input/research-intro.txt to update the intro paragraph.
+  // ──────────────────────────────────────────────────────────────────────────────
+
+  async function loadText(file) {
+    const r = await fetch(file);
+    if (!r.ok) return null;
+    return (await r.text()).trim();
+  }
+
+  function parseResearch(text) {
+    const result = { title: '', desc: '' };
+    for (const line of text.split('\n')) {
+      const t = line.trim();
+      if (t.startsWith('---'))     result.desc  = t.slice(3).trim();
+      else if (t.startsWith('->')) result.title = t.slice(2).trim();
+    }
+    return result;
+  }
+
+  async function loadResearch() {
+    // Load intro
+    const intro = await loadText('Input/research-intro.txt');
+    if (intro) document.getElementById('research-intro').textContent = intro;
+
+    // Load cards: keep trying N = 1, 2, 3, ... until file is missing
+    const container = document.getElementById('research-cards');
+    let n = 1;
+    while (true) {
+      const text = await loadText(`Input/research-${n}.txt`);
+      if (text === null) break;
+      const p = parseResearch(text);
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `<h3>${p.title}</h3><p style="margin-top:6px; font-size:0.88rem; color:var(--muted);">${p.desc}</p>`;
+      container.appendChild(card);
+      n++;
+    }
+  }
+
+  loadResearch();
+</script>
 </body>
 </html>

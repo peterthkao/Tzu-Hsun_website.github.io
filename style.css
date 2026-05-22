@@ -161,6 +161,22 @@ p {
   word-spacing: -0.02em;
 }
 
+
+/* ── Banner ── */
+.site-banner {
+  width: 100%;
+  max-height: 320px;
+  overflow: hidden;
+  line-height: 0;
+}
+.site-banner img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 /* ── Home ── */
 .home-section {
   display: flex;
@@ -203,9 +219,19 @@ p {
   color: var(--text-bright);
   text-align: center;
   margin-top: 14px;
+  margin-bottom: 0;
   width: 200px;
   letter-spacing: -0.01em;
   line-height: 1.3;
+}
+.home-name-zh {
+  text-align: center;
+  font-size: 1.22rem;
+  color: var(--text-bright);
+  letter-spacing: 0.1em;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 200px;
 }
 
 .home-meta {
@@ -265,6 +291,7 @@ p {
   letter-spacing: 0.08em;
   color: var(--muted);
   margin-bottom: 8px;
+  text-align: center;
 }
 
 .citation-stats {
@@ -597,6 +624,34 @@ p {
   color: var(--text);
 }
 
+/* ── Research cards with illustration ── */
+.research-card {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.research-illustration {
+  flex-shrink: 0;
+  width: 160px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-bright);
+}
+
+.research-illustration svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.research-text { flex: 1; }
+
+@media (max-width: 640px) {
+  .research-card { flex-direction: column; }
+  .research-illustration { width: 100%; }
+}
+
 /* ── Section intro ── */
 .section-intro {
   color: var(--muted);
@@ -758,6 +813,24 @@ p {
 }
 
 .about-detail .value { color: var(--text); }
+
+/* ── CV Download Button ── */
+.cv-download-btn {
+  display: inline-block;
+  padding: 10px 28px;
+  background: var(--blue-dim);
+  color: #ffffff;
+  border: 1px solid var(--blue-dim);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-family: Georgia, serif;
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition);
+}
+.cv-download-btn:hover {
+  background: var(--blue);
+  color: var(--navy);
+}
 
 /* ── Timeline ── */
 .timeline { margin-bottom: 8px; }

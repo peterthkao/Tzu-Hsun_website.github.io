@@ -25,6 +25,10 @@
   </button>
 </nav>
 
+<div class="site-banner">
+  <img src="Resources/Banner/Gemini_Generated_Image_etsgr1etsgr1etsg.png" alt="Banner" />
+</div>
+
 <main>
   <section class="home-section">
     <div class="home-layout">
@@ -32,12 +36,14 @@
       <div class="home-photo-col">
         <img src="Resources/pic.jpg" alt="Tzu-Hsun Kao" class="home-photo" />
         <h1 class="home-name">Tzu-Hsun Kao</h1>
+        <p class="home-name-zh">高子勛</p>
         <div class="home-meta">
           <p class="home-position"><span class="meta-icon">🎓</span><span>PhD Student</span></p>
           <p class="home-position"><span class="meta-icon">📍</span><span>Boulder, CO</span></p>
           <p class="home-position"><span class="meta-icon">📧</span><a href="mailto:Tzu-Hsun.Kao@colorado.edu">Email</a></p>
           <p class="home-position"><span class="meta-icon">📚</span><a href="https://scholar.google.com.tw/citations?user=jrdIadQAAAAJ&hl=zh-TW&authuser=1" target="_blank">Google Scholar</a></p>
           <p class="home-position"><span class="meta-icon">🔬</span><a href="https://orcid.org/0000-0001-6592-4341" target="_blank">ORCID</a></p>
+          <p class="home-position"><span class="meta-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="vertical-align:middle;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span><a href="https://www.linkedin.com/in/peterthkao/" target="_blank">LinkedIn</a></p>
         </div>
         <!-- Citation stats -->
         <a href="https://scholar.google.com.tw/citations?user=jrdIadQAAAAJ&hl=zh-TW&authuser=1" target="_blank" class="citation-box">
@@ -94,16 +100,17 @@
 
       <!-- Right: content -->
       <div class="home-content-col">
-        <span class="home-tag">Aerospace Engineering · Space Science</span>
-        <p class="home-intro">
+        <span class="home-tag" id="home-tag">Aerospace Engineering · Space Science</span>
+        <p class="home-intro" id="home-description">
           Hello! I'm Tzu-Hsun (子勛), a PhD student at the University of Colorado Boulder, Department of Aerospace Engineering Sciences. I'm a lead of COSMO data processing, a 6U CubeSat measuring Earth's magnetic field using vectorized Rubidium scalars. COSMO has launched at the end of March 2026. Now we are working on getting first science data from it. My research interest is on the magnetic field, magnetosphere, wave-driven particle precipitation, and ionospheric responses to solar and geophysical events. It's my pleasure to see you here! Please feel free to browsing around and let me know if you have any questions!
         </p>
-        <div class="home-chips">
+        <div class="home-chips" id="home-chips">
           <span class="chip">Ionosphere</span>
           <span class="chip">Magnetosphere</span>
           <span class="chip">Magnetic Field</span>
           <span class="chip">Magnetometer</span>
           <span class="chip">Wave-Particle Interaction</span>
+          <span class="chip">COSMO</span>
         </div>
 
         <!-- Latest publications -->
@@ -174,6 +181,35 @@
 
 <script src="nav.js"></script>
 <script>
+  // ── Home content loader ──────────────────────────────────────────
+  // Edit Input/home-tag.txt        → top tag line
+  // Edit Input/home-description.txt → intro paragraph
+  // Edit Input/home-keywords.txt   → keyword chips (pipe-separated)
+  // ──────────────────────────────────────────────────────────────────
+  async function loadHomeContent() {
+    async function loadText(file) {
+      const r = await fetch(file);
+      if (!r.ok) return null;
+      return (await r.text()).trim();
+    }
+
+    const [tag, desc, keywords] = await Promise.all([
+      loadText('Input/home-tag.txt'),
+      loadText('Input/home-description.txt'),
+      loadText('Input/home-keywords.txt'),
+    ]);
+
+    if (tag) document.getElementById('home-tag').textContent = tag;
+    if (desc) document.getElementById('home-description').textContent = desc;
+    if (keywords) {
+      const chips = document.getElementById('home-chips');
+      chips.innerHTML = keywords.split('|').map(k =>
+        `<span class="chip">${k.trim()}</span>`
+      ).join('');
+    }
+  }
+  loadHomeContent();
+
   // Align meta block's left edge with the "T" in the name
   function alignMeta() {
     const name = document.querySelector('.home-name');
