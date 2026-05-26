@@ -890,6 +890,24 @@ footer p {
 footer a { color: var(--blue); text-decoration: none; }
 footer a:hover { color: var(--accent); }
 
+/* ── Visitor counter ── */
+.visitor-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 6px;
+  font-size: 0.65rem;
+  color: var(--muted);
+  font-family: Georgia, serif;
+  font-style: italic;
+  flex-wrap: wrap;
+  width: 200px;
+}
+.visitor-eye { font-style: normal; }
+.visitor-sep { color: var(--border-bright); }
+.visitor-item { white-space: nowrap; }
+
 /* ── Mobile ── */
 @media (max-width: 640px) {
   nav { padding: 0 20px; }

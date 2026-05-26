@@ -95,6 +95,12 @@
           </div>
         </a>
         <p class="citation-updated">Last update on May 19, 2026</p>
+        <div class="visitor-counter" id="visitor-counter">
+          <span class="visitor-eye">👁</span>
+          <span class="visitor-item">Today: <span id="visitor-daily">—</span></span>
+          <span class="visitor-sep">·</span>
+          <span class="visitor-item">Total: <span id="visitor-total">—</span></span>
+        </div>
       </div>
       <!-- Left photo col end -->
 
@@ -209,6 +215,47 @@
     }
   }
   loadHomeContent();
+
+  // ── Visitor counter ─────────────────────────────────────────────
+  // Uses counterapi.dev (free, no registration) for global tracking.
+  // sessionStorage prevents double-counting on page refresh.
+  // Daily key resets automatically each UTC day.
+  // ──────────────────────────────────────────────────────────────────
+  async function trackVisitor() {
+    const ns   = 'tzhsunkao-site';
+    const today = new Date().toISOString().slice(0, 10); // "YYYY-MM-DD"
+    const base  = 'https://api.counterapi.dev/v1';
+    const seen  = sessionStorage.getItem('vc');
+    try {
+      let total, daily;
+      if (!seen) {
+        const [tr, dr] = await Promise.all([
+          fetch(`${base}/${ns}/total/hit`),
+          fetch(`${base}/${ns}/daily-${today}/hit`)
+        ]);
+        const tj = await tr.json();
+        const dj = await dr.json();
+        total = tj.count;
+        daily = dj.count;
+        sessionStorage.setItem('vc', '1');
+      } else {
+        const [tr, dr] = await Promise.all([
+          fetch(`${base}/${ns}/total`),
+          fetch(`${base}/${ns}/daily-${today}`)
+        ]);
+        const tj = await tr.json();
+        const dj = await dr.json();
+        total = tj.count;
+        daily = dj.count;
+      }
+      document.getElementById('visitor-daily').textContent = daily.toLocaleString();
+      document.getElementById('visitor-total').textContent = total.toLocaleString();
+    } catch {
+      const el = document.getElementById('visitor-counter');
+      if (el) el.style.display = 'none';
+    }
+  }
+  trackVisitor();
 
   // Align meta block's left edge with the "T" in the name
   function alignMeta() {
